@@ -43,22 +43,34 @@ function getComputerChoice() {
 }
 
 
-// ── Player Choice Detection ────────────────────────────────────────────────────
-let playerChoice = '';
+// ── Display Update ─────────────────────────────────────────────────────────────
+// Capitalises the first letter of a choice string for display (e.g. "rock" → "Rock").
+function capitalise(str) {
+  return str.charAt(0).toUpperCase() + str.slice(1);
+}
 
+// Takes the player's choice, gets the computer's choice, runs the round,
+// then writes all three results to the page.
+function updateDisplay(choice) {
+  const computerChoice = getComputerChoice();
+  const result         = playRound(choice, computerChoice);
+
+  playerChoiceDisplay.textContent   = capitalise(choice);
+  computerChoiceDisplay.textContent = capitalise(computerChoice);
+  roundResultDisplay.textContent    = result;
+}
+
+// ── Player Choice Detection ────────────────────────────────────────────────────
 btnRock.addEventListener('click', () => {
-  playerChoice = 'rock';
-  console.log('Player chose:', playerChoice);
+  updateDisplay('rock');
 });
 
 btnPaper.addEventListener('click', () => {
-  playerChoice = 'paper';
-  console.log('Player chose:', playerChoice);
+  updateDisplay('paper');
 });
 
 btnScissors.addEventListener('click', () => {
-  playerChoice = 'scissors';
-  console.log('Player chose:', playerChoice);
+  updateDisplay('scissors');
 });
 
 
