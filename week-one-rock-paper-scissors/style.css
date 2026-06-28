@@ -35,7 +35,7 @@ header h1 {
 }
 
 header p {
-  font-size: 0.95rem;
+  font-size: 0.96rem;
   color: #94a3b8;
 }
 
@@ -90,7 +90,7 @@ main {
 
 #choices button:active {
   transform: translateY(0) scale(0.97);
-  filter: brightness(0.95);
+  filter: brightness(0.96);
 }
 
 #choices button:disabled {
@@ -122,7 +122,7 @@ main {
   font-size: 0.75rem;
   font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.09em;
   color: #64748b;
   margin-bottom: 0.5rem;
 }
@@ -177,7 +177,7 @@ main {
 
 #player-score-display,
 #computer-score-display {
-  font-size: 2.5rem;
+  font-size: 2.6rem;
   font-weight: 800;
   color: #e2e8f0;
   line-height: 1;
