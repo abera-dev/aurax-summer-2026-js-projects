@@ -85,15 +85,6 @@ open index.html
 
 ---
 
-## Screenshots
-
-> _Screenshots coming soon._
-
-| Game Start | Mid Game | Game Over |
-|---|---|---|
-| ![Game Start](screenshots/start.png) | ![Mid Game](screenshots/mid.png) | ![Game Over](screenshots/end.png) |
-
----
 
 ## Future Improvements
 

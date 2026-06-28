@@ -8,7 +8,7 @@ const btnRestart  = document.querySelector('#btn-restart');
 const choiceButtons = [btnRock, btnPaper, btnScissors];
 
 
-// Result Display Elements
+//Result Display Elements
 const playerChoiceDisplay   = document.querySelector('#player-choice-display');
 const computerChoiceDisplay = document.querySelector('#computer-choice-display');
 const roundResultDisplay    = document.querySelector('#round-result-display');
