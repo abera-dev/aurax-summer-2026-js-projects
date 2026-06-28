@@ -1,12 +1,12 @@
 # Rock Paper Scissors
 
-A browser-based Rock Paper Scissors game built with vanilla HTML, CSS, and JavaScript. Play against the computer and be the first to reach 5 points to win.
+A browser-based Rock Paper Scissors game built with HTML, CSS, and JavaScript. Play against the computer.
 
 ---
 
 ## Description
 
-This is a week-one project from the Aurax Summer 2026 JavaScript series. It was built step by step — first the HTML structure, then the CSS styling, then the JavaScript logic — to practice the fundamentals of DOM manipulation, event handling, and game logic without any libraries or frameworks.
+This is a week-one project from the Aurax Summer 2026 JavaScript series. It was built step by step first the HTML structure, then the CSS styling and the JavaScript logic.
 
 ---
 
@@ -19,8 +19,6 @@ This is a week-one project from the Aurax Summer 2026 JavaScript series. It was 
 - Live scoreboard that updates after every round
 - Game ends automatically when either side reaches 5 points
 - Restart button resets the entire game back to its initial state
-- Responsive layout that works on mobile and desktop
-- Hover and active animations on all buttons
 - Disabled button state prevents play after the game ends
 
 ---
@@ -29,11 +27,9 @@ This is a week-one project from the Aurax Summer 2026 JavaScript series. It was 
 
 | Technology | Purpose |
 |---|---|
-| HTML5 | Page structure and semantic markup |
-| CSS3 | Styling, layout (Flexbox), animations, responsive design |
-| JavaScript (ES6+) | Game logic, DOM manipulation, event handling |
-
-No external libraries, frameworks, or build tools were used.
+| HTML | Page structure  |
+| CSS | Styling|
+| JavaScript | Game logic|
 
 ---
 
@@ -42,8 +38,8 @@ No external libraries, frameworks, or build tools were used.
 ```
 week-one-rock-paper-scissors/
 ├── index.html      # HTML structure
-├── style.css       # All styles and responsive layout
-├── script.js       # Game logic and DOM interactions
+├── style.css       # All styles 
+├── script.js       # Game logic 
 └── README.md       # Project documentation
 ```
 
@@ -82,19 +78,6 @@ open index.html
 - **Paper** beats **Rock**
 - If both choices are the same, the round is a **Tie** (no points awarded)
 - First player to reach **5 wins** ends the game
-
----
-
-
-## Future Improvements
-
-- Add sound effects for wins, losses, and ties
-- Animate the choice reveal with a short delay
-- Add a best-of selector (e.g. first to 3, 5, or 10)
-- Track win/loss history across multiple games
-- Add keyboard shortcuts for Rock (R), Paper (P), Scissors (S)
-- Light mode / dark mode toggle
-
 
 
 
