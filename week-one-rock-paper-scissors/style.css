@@ -1,4 +1,4 @@
-/* ── Reset & Base ─────────────────────────────────────────── */
+
 *, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
@@ -18,7 +18,7 @@ body {
   gap: 2rem;
 }
 
-/* ── Header ───────────────────────────────────────────────── */
+
 header {
   text-align: center;
 }
@@ -39,7 +39,7 @@ header p {
   color: #94a3b8;
 }
 
-/* ── Main layout ──────────────────────────────────────────── */
+
 main {
   width: 100%;
   max-width: 640px;
@@ -49,7 +49,6 @@ main {
   gap: 2rem;
 }
 
-/* ── Choice Buttons ───────────────────────────────────────── */
 #choices {
   display: flex;
   gap: 1rem;
@@ -70,17 +69,15 @@ main {
   letter-spacing: 0.03em;
 }
 
-/* Rock — earthy red */
 #btn-rock {
   background: linear-gradient(135deg, #ef4444, #b91c1c);
 }
 
-/* Paper — ocean blue */
+
 #btn-paper {
   background: linear-gradient(135deg, #3b82f6, #1d4ed8);
 }
 
-/* Scissors — emerald green */
 #btn-scissors {
   background: linear-gradient(135deg, #10b981, #065f46);
 }
@@ -96,7 +93,6 @@ main {
   filter: brightness(0.95);
 }
 
-/* ── Result Section ───────────────────────────────────────── */
 #result {
   width: 100%;
   display: flex;
@@ -136,7 +132,6 @@ main {
   color: #a78bfa;
 }
 
-/* ── Scoreboard Card ──────────────────────────────────────── */
 #scoreboard {
   width: 100%;
   background: #1e1e2e;
@@ -180,7 +175,6 @@ main {
   line-height: 1;
 }
 
-/* Restart Button */
 #btn-restart {
   padding: 0.6rem 1.8rem;
   font-size: 0.9rem;
@@ -204,7 +198,7 @@ main {
   transform: translateY(0);
 }
 
-/* ── Responsive ───────────────────────────────────────────── */
+
 @media (max-width: 480px) {
   #result {
     flex-direction: column;
