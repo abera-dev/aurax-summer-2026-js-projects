@@ -60,3 +60,23 @@ btnScissors.addEventListener('click', () => {
   playerChoice = 'scissors';
   console.log('Player chose:', playerChoice);
 });
+
+
+// ── Round Logic ────────────────────────────────────────────────────────────────
+function playRound(playerChoice, computerChoice) {
+  if (playerChoice === computerChoice) {
+    return 'Tie';
+  }
+
+  const winsAgainst = {
+    rock:     'scissors',
+    paper:    'rock',
+    scissors: 'paper',
+  };
+
+  if (winsAgainst[playerChoice] === computerChoice) {
+    return 'Player Wins';
+  }
+
+  return 'Computer Wins';
+}
