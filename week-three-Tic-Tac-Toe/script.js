@@ -17,7 +17,7 @@ function handleCellClick(e) {
   cell.textContent = currentPlayer;
 
   currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
-  currentPlayerDisplay.textContent = currentPlayer;
+  currentPlayerDisplay.textContent = `Player ${currentPlayer}`;
 }
 
 cells.forEach(cell => cell.addEventListener('click', handleCellClick));
