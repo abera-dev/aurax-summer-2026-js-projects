@@ -1,4 +1,3 @@
-// Home page - Hero section
 export function loadHome(container) {
   const section = document.createElement('section');
   section.classList.add('home');

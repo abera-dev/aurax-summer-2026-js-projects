@@ -1,18 +1,12 @@
-/* ===========================
-   CSS Variables - Ethiopian Palette
-   =========================== */
 :root {
-  --terracotta: #B7410E;      /* Deep rust/terracotta */
-  --gold: #D4A843;            /* Warm gold/mustard */
-  --cream: #FFF8F0;           /* Off-white/cream */
-  --dark-brown: #3E2723;      /* Dark brown for text */
-  --warm-brown: #5D4037;      /* Medium brown */
-  --light-tan: #F5E6D3;       /* Light tan background */
+  --terracotta: #B7410E;
+  --gold: #D4A843;
+  --cream: #FFF8F0;
+  --dark-brown: #3E2723;
+  --warm-brown: #5D4037;
+  --light-tan: #F5E6D3;
 }
 
-/* ===========================
-   Reset & Base Styles
-   =========================== */
 * {
   margin: 0;
   padding: 0;
@@ -29,9 +23,6 @@ body {
   line-height: 1.6;
 }
 
-/* ===========================
-   Header
-   =========================== */
 header {
   background: linear-gradient(135deg, var(--terracotta) 0%, var(--warm-brown) 100%);
   color: #fff;
@@ -47,9 +38,6 @@ header h1 {
   margin-bottom: 10px;
 }
 
-/* ===========================
-   Navigation Bar
-   =========================== */
 nav {
   background-color: var(--dark-brown);
   position: sticky;
@@ -76,7 +64,6 @@ nav ul li a {
   transition: background-color 0.3s, color 0.3s;
 }
 
-/* Nav hover and active states */
 nav ul li a:hover {
   background-color: var(--terracotta);
   color: #fff;
@@ -87,22 +74,15 @@ nav ul li a.active {
   color: var(--dark-brown);
 }
 
-/* ===========================
-   Main Content Area
-   =========================== */
 main {
   flex: 1;
   width: 100%;
   margin: 0 auto;
 }
 
-/* ===========================
-   Home Page - Hero Section
-   =========================== */
 .home {
   position: relative;
   min-height: 85vh;
-  /* Ethiopian food image from Unsplash */
   background-image: url('https://images.unsplash.com/photo-1606525425558-fca2f123e391?w=1920&q=80');
   background-size: cover;
   background-position: center;
@@ -112,7 +92,6 @@ main {
   justify-content: center;
 }
 
-/* Dark overlay on hero image for text readability */
 .home::before {
   content: '';
   position: absolute;
@@ -125,7 +104,6 @@ main {
   z-index: 1;
 }
 
-/* Hero text content */
 .hero-content {
   position: relative;
   z-index: 2;
@@ -152,7 +130,6 @@ main {
   color: var(--cream);
 }
 
-/* Call-to-action button */
 .hero-btn {
   display: inline-block;
   padding: 16px 40px;
@@ -172,9 +149,6 @@ main {
   box-shadow: 0 6px 20px rgba(212, 168, 67, 0.5);
 }
 
-/* ===========================
-   Footer
-   =========================== */
 footer {
   background-color: var(--dark-brown);
   color: var(--light-tan);
@@ -183,9 +157,6 @@ footer {
   font-size: 0.9rem;
 }
 
-/* ===========================
-   Menu Page Styles
-   =========================== */
 .menu {
   max-width: 1100px;
   margin: 0 auto;
@@ -297,9 +268,6 @@ footer {
   font-weight: 700;
 }
 
-/* ===========================
-   About Page Styles
-   =========================== */
 .about {
   max-width: 900px;
   margin: 0 auto;
@@ -314,7 +282,6 @@ footer {
   color: var(--terracotta);
 }
 
-/* Each about section as a card */
 .about-card {
   background: #fff;
   border-radius: 12px;
@@ -323,7 +290,6 @@ footer {
   box-shadow: 0 2px 12px rgba(62, 39, 35, 0.08);
 }
 
-/* Section divider line */
 .about-divider {
   width: 60px;
   height: 3px;
@@ -333,7 +299,6 @@ footer {
   margin: 0 auto 30px;
 }
 
-/* Card title with icon */
 .about-card-header {
   display: flex;
   align-items: center;
@@ -357,14 +322,12 @@ footer {
   line-height: 1.7;
 }
 
-/* Chef section - two column layout */
 .about-chef {
   display: flex;
   align-items: center;
   gap: 30px;
 }
 
-/* Circular chef photo placeholder */
 .chef-photo {
   width: 150px;
   height: 150px;
@@ -391,26 +354,121 @@ footer {
   font-weight: 600;
 }
 
-/* Responsive - stack chef section on mobile */
-@media (max-width: 600px) {
-  .about-chef {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .chef-photo {
-    width: 120px;
-    height: 120px;
-    font-size: 2.5rem;
-  }
+.contact {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 50px 20px;
 }
 
-/* ===========================
-   Responsive Design
-   =========================== */
+.contact h2 {
+  font-family: 'Playfair Display', serif;
+  text-align: center;
+  font-size: 2.2rem;
+  margin-bottom: 40px;
+  color: var(--terracotta);
+}
+
+.contact-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: start;
+}
+
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.contact-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 2px 12px rgba(62, 39, 35, 0.08);
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.contact-icon {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  background-color: var(--light-tan);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  flex-shrink: 0;
+}
+
+.contact-details h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.1rem;
+  color: var(--dark-brown);
+  margin-bottom: 6px;
+}
+
+.contact-details p {
+  font-size: 0.95rem;
+  color: var(--warm-brown);
+  line-height: 1.6;
+}
+
+.map-placeholder {
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 12px rgba(62, 39, 35, 0.08);
+}
+
+.map-placeholder h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.2rem;
+  color: var(--dark-brown);
+  padding: 20px 24px 0;
+}
+
+.map-box {
+  width: 100%;
+  height: 280px;
+  background-color: var(--light-tan);
+  background-image:
+    linear-gradient(45deg, var(--cream) 25%, transparent 25%),
+    linear-gradient(-45deg, var(--cream) 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, var(--cream) 75%),
+    linear-gradient(-45deg, transparent 75%, var(--cream) 75%);
+  background-size: 20px 20px;
+  background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 16px;
+  border-top: 2px dashed var(--gold);
+}
+
+.map-box-icon {
+  font-size: 2.5rem;
+}
+
+.map-box-text {
+  font-size: 1rem;
+  color: var(--warm-brown);
+  font-weight: 500;
+}
+
 @media (max-width: 900px) {
   .menu-grid {
     grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .contact-layout {
+    grid-template-columns: 1fr;
   }
 }
 
@@ -452,5 +510,16 @@ footer {
 
   .hero-content p {
     font-size: 1rem;
+  }
+
+  .about-chef {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .chef-photo {
+    width: 120px;
+    height: 120px;
+    font-size: 2.5rem;
   }
 }

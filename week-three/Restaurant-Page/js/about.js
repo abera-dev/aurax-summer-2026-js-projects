@@ -1,4 +1,3 @@
-// About page data
 const aboutData = {
   story: {
     title: 'Our Story',
@@ -23,12 +22,10 @@ const aboutData = {
   },
 };
 
-// Create a regular about card (Story, Mission, Cuisine)
 function createAboutCard(data) {
   const card = document.createElement('div');
   card.classList.add('about-card');
 
-  // Card header with icon and title
   const header = document.createElement('div');
   header.classList.add('about-card-header');
   header.innerHTML = `
@@ -37,7 +34,6 @@ function createAboutCard(data) {
   `;
   card.appendChild(header);
 
-  // Card text
   const text = document.createElement('p');
   text.textContent = data.text;
   card.appendChild(text);
@@ -45,12 +41,10 @@ function createAboutCard(data) {
   return card;
 }
 
-// Create the special Chef card with photo placeholder
 function createChefCard(data) {
   const card = document.createElement('div');
   card.classList.add('about-card');
 
-  // Card header with icon and title
   const header = document.createElement('div');
   header.classList.add('about-card-header');
   header.innerHTML = `
@@ -59,17 +53,14 @@ function createChefCard(data) {
   `;
   card.appendChild(header);
 
-  // Chef section with photo and info side by side
   const chefSection = document.createElement('div');
   chefSection.classList.add('about-chef');
 
-  // Circular photo placeholder
   const photo = document.createElement('div');
   photo.classList.add('chef-photo');
   photo.textContent = '👩‍🍳';
   chefSection.appendChild(photo);
 
-  // Chef info
   const info = document.createElement('div');
   info.classList.add('chef-info');
   info.innerHTML = `
@@ -82,36 +73,29 @@ function createChefCard(data) {
   return card;
 }
 
-// Divider element between cards
 function createDivider() {
   const hr = document.createElement('hr');
   hr.classList.add('about-divider');
   return hr;
 }
 
-// Load the About page
 export function loadAbout(container) {
   const section = document.createElement('section');
   section.classList.add('about');
 
-  // Page heading
   const heading = document.createElement('h2');
   heading.textContent = 'About Us';
   section.appendChild(heading);
 
-  // Story card
   section.appendChild(createAboutCard(aboutData.story));
   section.appendChild(createDivider());
 
-  // Mission card
   section.appendChild(createAboutCard(aboutData.mission));
   section.appendChild(createDivider());
 
-  // Chef card (special layout)
   section.appendChild(createChefCard(aboutData.chef));
   section.appendChild(createDivider());
 
-  // Cuisine card
   section.appendChild(createAboutCard(aboutData.cuisine));
 
   container.appendChild(section);
