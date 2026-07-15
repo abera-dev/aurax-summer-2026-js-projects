@@ -7,7 +7,7 @@ export function loadHome(container) {
   heroContent.innerHTML = `
     <h2>Welcome to Blue Nile Kitchen</h2>
     <p>Experience the authentic flavors of Ethiopia,<br>where every dish tells a story of tradition and love.</p>
-    <a href="#menu" class="hero-btn">View Our Menu</a>
+    <a href="#menu" class="hero-btn" data-page="menu">View Our Menu</a>
   `;
 
   section.appendChild(heroContent);

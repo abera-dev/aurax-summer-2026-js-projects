@@ -4,7 +4,7 @@ import { loadAbout } from './about.js';
 import { loadContact } from './contact.js';
 
 const content = document.getElementById('content');
-const links = document.querySelectorAll('nav a');
+const navLinks = document.querySelectorAll('nav a');
 
 const pages = {
   home: loadHome,
@@ -17,22 +17,24 @@ function clearContent() {
   content.innerHTML = '';
 }
 
-function setActiveLink(selectedLink) {
-  links.forEach(link => link.classList.remove('active'));
-  selectedLink.classList.add('active');
+function setActiveLink(page) {
+  navLinks.forEach(link => {
+    link.classList.toggle('active', link.dataset.page === page);
+  });
 }
 
-function navigate(e) {
-  e.preventDefault();
-  const target = e.target.dataset.page;
-  if (!target || !pages[target]) return;
-
+function navigateTo(page) {
+  if (!pages[page]) return;
   clearContent();
-  pages[target](content);
-  setActiveLink(e.target);
+  pages[page](content);
+  setActiveLink(page);
 }
 
-links.forEach(link => link.addEventListener('click', navigate));
+document.addEventListener('click', (e) => {
+  const target = e.target.closest('[data-page]');
+  if (!target) return;
+  e.preventDefault();
+  navigateTo(target.dataset.page);
+});
 
-loadHome(content);
-setActiveLink(links[0]);
+navigateTo('home');
