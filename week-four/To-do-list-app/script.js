@@ -2,18 +2,48 @@ const taskInput = document.getElementById('taskInput');
 const addTaskBtn = document.getElementById('addTaskBtn');
 const taskList = document.getElementById('taskList');
 
-function addTask() {
-    const text = taskInput.value.trim();
-    if (!text) return;
+function getTasks() {
+    return JSON.parse(localStorage.getItem('tasks')) || [];
+}
 
+function saveTasks() {
+    const tasks = [];
+    taskList.querySelectorAll('.task-item').forEach(function (li) {
+        const span = li.querySelector('span');
+        if (span) {
+            tasks.push({
+                text: span.textContent,
+                completed: li.classList.contains('completed')
+            });
+        }
+    });
+    localStorage.setItem('tasks', JSON.stringify(tasks));
+}
+
+function createTaskElement(text, completed) {
     const li = document.createElement('li');
     li.classList.add('task-item');
+    if (completed) li.classList.add('completed');
     li.innerHTML = `
         <span>${text}</span>
         <button class="edit-btn" aria-label="Edit task">&#9998;</button>
         <button class="delete-btn" aria-label="Delete task">&times;</button>
     `;
-    taskList.appendChild(li);
+    return li;
+}
+
+function loadTasks() {
+    getTasks().forEach(function (task) {
+        taskList.appendChild(createTaskElement(task.text, task.completed));
+    });
+}
+
+function addTask() {
+    const text = taskInput.value.trim();
+    if (!text) return;
+
+    taskList.appendChild(createTaskElement(text, false));
+    saveTasks();
 
     taskInput.value = '';
     taskInput.focus();
@@ -22,8 +52,9 @@ function addTask() {
 function saveEdit(li, input) {
     const newText = input.value.trim();
     const span = document.createElement('span');
-    span.textContent = newText || li.querySelector('span').dataset.original;
+    span.textContent = newText || li.querySelector('input').dataset.original;
     li.replaceChild(span, input);
+    saveTasks();
 }
 
 taskList.addEventListener('click', function (e) {
@@ -32,6 +63,7 @@ taskList.addEventListener('click', function (e) {
 
     if (e.target.classList.contains('delete-btn')) {
         li.remove();
+        saveTasks();
         return;
     }
 
@@ -50,6 +82,7 @@ taskList.addEventListener('click', function (e) {
 
     if (e.target.tagName === 'SPAN') {
         li.classList.toggle('completed');
+        saveTasks();
     }
 });
 
@@ -72,3 +105,5 @@ taskInput.addEventListener('keydown', function (e) {
         addTask();
     }
 });
+
+loadTasks();
