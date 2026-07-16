@@ -40,8 +40,50 @@ function renderBoard(board, containerId, showShips) {
   }
 }
 
+const SHIPS = [5, 4, 3, 3, 2];
+
+function canPlace(board, row, col, length, horizontal) {
+  if (horizontal) {
+    if (col + length > BOARD_SIZE) return false;
+    for (let i = 0; i < length; i++) {
+      if (board[row][col + i] !== EMPTY) return false;
+    }
+  } else {
+    if (row + length > BOARD_SIZE) return false;
+    for (let i = 0; i < length; i++) {
+      if (board[row + i][col] !== EMPTY) return false;
+    }
+  }
+  return true;
+}
+
+function placeShip(board, length) {
+  const horizontal = Math.random() < 0.5;
+  while (true) {
+    const row = Math.floor(Math.random() * BOARD_SIZE);
+    const col = Math.floor(Math.random() * BOARD_SIZE);
+    if (canPlace(board, row, col, length, horizontal)) {
+      for (let i = 0; i < length; i++) {
+        if (horizontal) {
+          board[row][col + i] = SHIP;
+        } else {
+          board[row + i][col] = SHIP;
+        }
+      }
+      return;
+    }
+  }
+}
+
+function placeAllShips(board, ships) {
+  for (let i = 0; i < ships.length; i++) {
+    placeShip(board, ships[i]);
+  }
+}
+
 const playerBoard = createBoard();
 const computerBoard = createBoard();
+placeAllShips(computerBoard, SHIPS);
 
 renderBoard(playerBoard, "player-board", true);
 renderBoard(computerBoard, "enemy-board", false);
