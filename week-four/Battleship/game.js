@@ -10,6 +10,7 @@ let playerBoard = createBoard();
 let computerBoard = createBoard();
 let playerTurn = true;
 let gameOver = false;
+let gameStarted = false;
 let moveCount = 0;
 
 function createBoard() {
@@ -86,8 +87,8 @@ function placeAllShips(board, ships) {
   }
 }
 
-function showMessage(msg) {
-  document.getElementById("message").textContent = msg;
+function updateStatus(text) {
+  document.getElementById("message").textContent = text;
 }
 
 function allShipsSunk(board) {
@@ -132,6 +133,7 @@ function updateMoves() {
 
 function computerTurn() {
   playerTurn = false;
+  updateStatus("Computer's turn...");
   setTimeout(function () {
     const available = [];
     for (let r = 0; r < BOARD_SIZE; r++) {
@@ -153,15 +155,16 @@ function computerTurn() {
     if (allShipsSunk(playerBoard)) {
       gameOver = true;
       addLoss();
-      showMessage("You Lose!");
+      updateStatus("You Lose!");
       return;
     }
     playerTurn = true;
+    updateStatus("Your turn — attack the enemy waters!");
   }, 500);
 }
 
 function handleEnemyClick(e) {
-  if (!playerTurn || gameOver) return;
+  if (!gameStarted || !playerTurn || gameOver) return;
   const cell = e.target;
   const row = parseInt(cell.dataset.row);
   const col = parseInt(cell.dataset.col);
@@ -178,7 +181,7 @@ function handleEnemyClick(e) {
   if (allShipsSunk(computerBoard)) {
     gameOver = true;
     addWin();
-    showMessage("You Win!");
+    updateStatus("You Win!");
     return;
   }
   computerTurn();
@@ -191,6 +194,12 @@ function addEnemyListeners() {
   });
 }
 
+function startGame() {
+  gameStarted = true;
+  document.getElementById("start-btn").disabled = true;
+  updateStatus("Your turn — attack the enemy waters!");
+}
+
 function resetGame() {
   playerBoard = createBoard();
   computerBoard = createBoard();
@@ -198,14 +207,17 @@ function resetGame() {
   placeAllShips(computerBoard, SHIPS);
   playerTurn = true;
   gameOver = false;
+  gameStarted = false;
   moveCount = 0;
   document.getElementById("moves").textContent = "0";
-  showMessage("Place your ships");
+  document.getElementById("start-btn").disabled = false;
+  updateStatus("Place your ships");
   renderBoard(playerBoard, "player-board", true);
   renderBoard(computerBoard, "enemy-board", false);
   addEnemyListeners();
 }
 
+document.getElementById("start-btn").addEventListener("click", startGame);
 document.getElementById("reset-btn").addEventListener("click", resetGame);
 
 loadScore();
