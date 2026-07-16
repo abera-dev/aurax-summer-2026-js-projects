@@ -115,6 +115,29 @@ button[type="submit"]:active {
 }
 
 /* ----------------------------------------
+   Location Button
+   ---------------------------------------- */
+#location-btn {
+    width: 100%;
+    padding: 12px 20px;
+    font-family: inherit;
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--primary-color);
+    background: transparent;
+    border: 2px solid var(--primary-color);
+    border-radius: 50px;
+    cursor: pointer;
+    transition: background 0.3s ease, color 0.3s ease;
+    margin-bottom: 24px;
+}
+
+#location-btn:hover {
+    background: var(--primary-color);
+    color: white;
+}
+
+/* ----------------------------------------
    Weather Results Display
    ---------------------------------------- */
 #weather-results {
@@ -127,6 +150,13 @@ button[type="submit"]:active {
     font-size: 1.5rem;
     font-weight: 600;
     color: var(--text-dark);
+    margin-bottom: 4px;
+}
+
+/* Coordinates */
+.coordinates {
+    font-size: 0.85rem;
+    color: var(--text-muted);
     margin-bottom: 8px;
 }
 
@@ -161,12 +191,23 @@ button[type="submit"]:active {
     font-size: 1.1rem;
     color: var(--text-muted);
     padding: 40px 0;
-    animation: pulse 1.5s ease-in-out infinite;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
 }
 
-@keyframes pulse {
-    0%, 100% { opacity: 0.5; }
-    50% { opacity: 1; }
+.spinner {
+    width: 36px;
+    height: 36px;
+    border: 4px solid #e2e8f0;
+    border-top-color: var(--primary-color);
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
 }
 
 /* ----------------------------------------
